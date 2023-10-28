@@ -30,6 +30,10 @@ void WriteFile::CloseFile() {
     }
 }
 
-void WriteFile::WriteLine(std::string line) {
-    file << line << "\n";
+void WriteFile::WriteLine(std::vector<std::string> elements) {
+    auto vector_iter;
+    for (vector_iter = elements.begin(); vector_iter != elements.end() - 1; vector_iter++) {
+        file << *vector_iter << delimiter;
+    }
+    file << *vector_iter << "\n";
 }

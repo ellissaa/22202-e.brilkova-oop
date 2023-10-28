@@ -41,11 +41,11 @@ int main(int argc, char** argv) {
         return ERROR;
     }
 
-    writer.WriteLine("Word,Quantity,Frequency");
+    std::vector<std::string> exit_line = {'Word', "Quantity", "Frequency"};
     for (const auto &entry : sorted_list) {
         double frequency = (double)entry.second / word_map.Count();
-        std::string line = entry.first + ',' + to_string(entry.second) + ',' + to_string(frequency);
-        writer.WriteLine(line);
+        std::vector<std::string> exit_line = {entry.first, to_string(entry.second), to_string(frequency)};
+        writer.WriteLine(exit_line);
     }
     writer.CloseFile();
 }

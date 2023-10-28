@@ -3,11 +3,13 @@
 
 #include <string>
 #include <fstream>
+#include <vector>
 
 class WriteFile {
 private:
     std::string file_name;
     std::ofstream file;
+    std::string delimiter = ',';
 
     void CheckFile();
 
@@ -18,7 +20,7 @@ public:
     void Open();
     bool IsOpen();
     void CloseFile();
-    void WriteLine(std::string line);
+    void WriteLine(std::vector<std::string> elements);
 };
 
 #endif
