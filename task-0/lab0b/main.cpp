@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
         return ERROR;
     }
 
-    std::vector<std::string> exit_line = {'Word', "Quantity", "Frequency"};
+    std::vector<std::string> exit_line = {"Word", "Quantity", "Frequency"};
     for (const auto &entry : sorted_list) {
         double frequency = (double)entry.second / word_map.Count();
         std::vector<std::string> exit_line = {entry.first, to_string(entry.second), to_string(frequency)};

@@ -9,7 +9,7 @@ class WriteFile {
 private:
     std::string file_name;
     std::ofstream file;
-    std::string delimiter = ',';
+    std::string delimiter = ",";
 
     void CheckFile();
 

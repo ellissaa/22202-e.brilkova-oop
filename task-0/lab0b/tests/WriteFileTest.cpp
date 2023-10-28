@@ -8,13 +8,15 @@ TEST(FileWriterTest, FileIsOpen) {
 }
 
 TEST(FileWriterTest, WriteLine) {
+    std::vector<std::string> input{"hello", "world"};
+    std::string output = "hello,world";
     WriteFile writer("test.txt");
     writer.Open();
-    writer.WriteLine("testing");
+    writer.WriteLine(input);
     writer.CloseFile();
 
     std::ifstream file("test.txt");
     std::string line;
     std::getline(file, line);
-    EXPECT_EQ(line, "testing");
+    EXPECT_EQ(line, output);
 }

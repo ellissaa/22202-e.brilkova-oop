@@ -31,7 +31,7 @@ void WriteFile::CloseFile() {
 }
 
 void WriteFile::WriteLine(std::vector<std::string> elements) {
-    auto vector_iter;
+    std::vector<std::string>::iterator vector_iter;
     for (vector_iter = elements.begin(); vector_iter != elements.end() - 1; vector_iter++) {
         file << *vector_iter << delimiter;
     }
