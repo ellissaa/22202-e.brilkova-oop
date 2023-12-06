@@ -68,3 +68,15 @@ TEST(PushTests, PushFront4) {
     EXPECT_EQ(cb.front(), 15);
     EXPECT_EQ(cb.back(), 20);
 }
+
+TEST(PushTests, PushBackSum) {
+    CircularBuffer<int> cb1(5, 10);
+    CircularBuffer<int> cb2(6, 5);
+
+    CircularBuffer<int> cb3 = cb1 + cb2;
+    EXPECT_EQ(cb3.size(), 11);
+    EXPECT_EQ(cb3.front(), 10);
+    EXPECT_EQ(cb3.back(), 5);
+    EXPECT_EQ(cb3[4], 10);
+    EXPECT_EQ(cb3[5], 5);
+}

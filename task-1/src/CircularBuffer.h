@@ -52,10 +52,14 @@ public:
         int abs_index = (m_first_added + index) % m_capacity;
         return m_buffer[abs_index];
     };
+    //CircularBuffer<int> cb(10);
+    // cb[i] = 5;
     const ContentT& operator[](int i) const {
         int abs_index = (m_first_added + i) % m_capacity;
         return m_buffer[abs_index];
     };
+    // const CircularBuffer<int> cb(10);
+    // if cb[i] == 5 ...
 
     //доступ по индексу. методы бросают исключение в случае неверного индекса
     ContentT& at(int index) {
@@ -201,6 +205,23 @@ public:
             delete[] old_buffer;
         }
         return *this;
+    };
+
+    CircularBuffer operator+(const CircularBuffer& cb2) const {
+        int size_sum = m_size + cb2.m_size;
+        int capacity_sum = size_sum;
+
+        CircularBuffer<ContentT> cb_sum(capacity_sum);
+        for (int i = 0; i < m_size; i++) {
+            cb_sum.push_back((*this)[i]);
+        }
+        for (int i = 0; i < cb2.m_size; i++) {
+            cb_sum.push_back(cb2[i]);
+        }
+//        for (int i = 0; i < size_sum; i++) {
+//            std::cout << cb_sum[i] << "\n";
+//        }
+        return cb_sum;
     };
 
     //Обменивает содержимое буфера с буфером cb.
