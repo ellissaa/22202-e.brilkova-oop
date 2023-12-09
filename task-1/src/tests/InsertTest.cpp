@@ -2,22 +2,22 @@
 #include "../CircularBuffer.h"
 
 TEST(InsertTests, Insert1) {
-    CircularBuffer<int> cb;
+    CircularBuffer cb;
     EXPECT_THROW(cb.insert(0, 20), std::out_of_range);
 }
 
 TEST(InsertTests, Insert2) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     EXPECT_THROW(cb.insert(10, 20), std::out_of_range);
 }
 
 TEST(InsertTests, Insert3) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     EXPECT_NO_THROW(cb.insert(0, 20));
 }
 
 TEST(InsertTests, Insert4) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     cb.push_back(1);
     cb.push_back(2); // 1 (first) 2 (last) _ _ _
 
@@ -30,7 +30,7 @@ TEST(InsertTests, Insert4) {
 }
 
 TEST(InsertTests, Insert5) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
 
     cb.insert(0, 3);
     EXPECT_EQ(cb.capacity(), 5);
@@ -40,7 +40,7 @@ TEST(InsertTests, Insert5) {
 }
 
 TEST(InsertTests, Insert6) {
-    CircularBuffer<int> cb(5, 0);
+    CircularBuffer cb(5, 0);
     cb[1] = 1;
     cb[4] = 4; // 0 (first) 1 0 0 4 (last)
 
@@ -53,7 +53,7 @@ TEST(InsertTests, Insert6) {
 }
 
 TEST(InsertTests, Insert7) {
-    CircularBuffer<int> cb(5, 0);
+    CircularBuffer cb(5, 0);
     cb[1] = 1; // 0 (first) 1 0 0 0 (last)
 
     cb.insert(5, 3); // 3 (last) 1 (first) 0 0 0

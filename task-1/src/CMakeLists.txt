@@ -17,6 +17,7 @@ enable_testing()
 
 add_executable(
         CircularBufferTests
+        CircularBuffer.cpp
         tests/AddressTest.cpp
         tests/CapacityTest.cpp
         tests/ConstructorTest.cpp

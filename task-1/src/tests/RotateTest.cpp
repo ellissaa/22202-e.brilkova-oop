@@ -2,12 +2,12 @@
 #include "../CircularBuffer.h"
 
 TEST(RotateTests, Linearize1) {
-    CircularBuffer<int> cb;
+    CircularBuffer cb;
     EXPECT_EQ(cb.linearize(), nullptr);
 }
 
 TEST(RotateTests, Linearize2) {
-    CircularBuffer<int> cb(4);
+    CircularBuffer cb(4);
     cb.push_back(1);
     cb.push_back(2);
     cb.push_back(3);
@@ -29,18 +29,18 @@ TEST(RotateTests, Linearize2) {
 }
 
 TEST(RotateTests, Rotate1) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     EXPECT_THROW(cb.rotate(0), std::out_of_range);
 }
 
 TEST(RotateTests, Rotate2) {
-    CircularBuffer<int> cb(5, 10);
+    CircularBuffer cb(5, 10);
     cb.pop_back();
     EXPECT_THROW(cb.rotate(4), std::out_of_range);
 }
 
 TEST(RotateTests, Rotate3) {
-    CircularBuffer<int> cb(4);
+    CircularBuffer cb(4);
     cb.push_back(1);
     cb.push_back(2);
     cb.push_back(3);
@@ -54,7 +54,7 @@ TEST(RotateTests, Rotate3) {
 }
 
 TEST(RotateTests, Rotate4) {
-    CircularBuffer<int> cb(4);
+    CircularBuffer cb(4);
     cb.push_back(1);
     cb.push_back(2);
     cb.push_back(3);

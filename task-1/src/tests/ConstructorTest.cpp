@@ -3,14 +3,14 @@
 
 TEST(ConstructorTests, Constr1_1) {
     int capacity = 5;
-    CircularBuffer<int> cb(capacity);
+    CircularBuffer cb(capacity);
     EXPECT_EQ(cb.IsEmpty(), true);
     EXPECT_EQ(cb.capacity(), capacity);
 }
 
 TEST(ConstructorTests, Constr1_2) {
     int capacity = 0;
-    CircularBuffer<int> cb(capacity);
+    CircularBuffer cb(capacity);
     EXPECT_EQ(cb.IsEmpty(), true);
     EXPECT_EQ(cb.IsFull(), true);
     EXPECT_EQ(cb.capacity(), capacity);
@@ -20,7 +20,7 @@ TEST(ConstructorTests, Constr2_1) {
     int capacity = 5;
     int item = 10;
 
-    CircularBuffer<int> cb(capacity, item);
+    CircularBuffer cb(capacity, item);
     EXPECT_EQ(cb.IsFull(), true);
     EXPECT_EQ(cb.IsEmpty(), false);
     EXPECT_EQ(cb.capacity(), capacity);
@@ -34,10 +34,10 @@ TEST(ConstructorTests, CopyConstr) {
     int capacity = 5;
     int item = 10;
 
-    CircularBuffer<int> cb1(capacity, item);
+    CircularBuffer cb1(capacity, item);
     cb1[1] = 15;
 
-    CircularBuffer<int> cb2(cb1);
+    CircularBuffer cb2(cb1);
     EXPECT_EQ(cb1.size(), cb2.size());
     EXPECT_EQ(cb1.capacity(), cb2.capacity());
 

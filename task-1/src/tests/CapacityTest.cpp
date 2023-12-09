@@ -2,13 +2,13 @@
 #include "../CircularBuffer.h"
 
 TEST(CapacityTests, SetCapacity1) {
-    CircularBuffer<int> cb;
+    CircularBuffer cb;
     cb.set_capacity(10);
     EXPECT_EQ(cb.capacity(), 10);
 }
 
 TEST(CapacityTests, SetCapacity2) {
-    CircularBuffer<int> cb(3, 10);
+    CircularBuffer cb(3, 10);
     cb.set_capacity(10);
     EXPECT_EQ(cb.capacity(), 10);
     EXPECT_EQ(cb.size(), 3);
@@ -19,7 +19,7 @@ TEST(CapacityTests, SetCapacity2) {
 }
 
 TEST(CapacityTests, SetCapacity3) {
-    CircularBuffer<int> cb(5, 10);
+    CircularBuffer cb(5, 10);
     cb.set_capacity(3);
     EXPECT_EQ(cb.capacity(), 3);
     EXPECT_EQ(cb.size(), 3);
@@ -30,14 +30,14 @@ TEST(CapacityTests, SetCapacity3) {
 }
 
 TEST(CapacityTests, SetCapacity4) {
-    CircularBuffer<int> cb(3, 10);
+    CircularBuffer cb(3, 10);
     cb.set_capacity(0);
     EXPECT_EQ(cb.capacity(), 0);
     EXPECT_EQ(cb.size(), 0);
 }
 
 TEST(CapacityTests, Resize1) {
-    CircularBuffer<int> cb(3, 10);
+    CircularBuffer cb(3, 10);
     int old_size = cb.size();
 
     cb.resize(5, 15);
@@ -53,7 +53,7 @@ TEST(CapacityTests, Resize1) {
 }
 
 TEST(CapacityTests, Resize2) {
-    CircularBuffer<int> cb(5, 10);
+    CircularBuffer cb(5, 10);
 
     cb.resize(3, 15);
     EXPECT_EQ(cb.capacity(), 3);

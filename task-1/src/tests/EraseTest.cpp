@@ -2,23 +2,23 @@
 #include "../CircularBuffer.h"
 
 TEST(EraseTests, Erase1) {
-    CircularBuffer<int> cb(10, 10);
+    CircularBuffer cb(10, 10);
     EXPECT_THROW(cb.erase(5, 20), std::out_of_range);
 }
 
 TEST(EraseTests, Erase2) {
-    CircularBuffer<int> cb(10, 10);
+    CircularBuffer cb(10, 10);
     EXPECT_NO_THROW(cb.erase(5, 10));
 }
 
 TEST(EraseTests, Erase3) {
-    CircularBuffer<int> cb(10, 10);
+    CircularBuffer cb(10, 10);
     cb.erase(5, 2);
     EXPECT_EQ(cb.size(), 10);
 }
 
 TEST(EraseTests, Erase4) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     cb.push_back(1);
     cb.push_back(2);
     cb.push_back(3);
@@ -32,7 +32,7 @@ TEST(EraseTests, Erase4) {
 }
 
 TEST(EraseTests, Erase5) {
-    CircularBuffer<int> cb(5);
+    CircularBuffer cb(5);
     cb.push_back(1);
     cb.push_back(2);
     cb.push_back(3);
@@ -46,7 +46,7 @@ TEST(EraseTests, Erase5) {
 }
 
 TEST(EraseTests, Erase6) {
-    CircularBuffer<int> cb(5, 10);
+    CircularBuffer cb(5, 10);
     cb.erase(0, 5);
     EXPECT_EQ(cb.size(), 0);
 }
